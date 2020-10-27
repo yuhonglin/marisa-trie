@@ -34,7 +34,7 @@ typedef uint64_t marisa_uint64;
     defined(__s390x__)
  #define MARISA_WORD_SIZE 64
 #else  // defined(_WIN64), etc.
- #define MARISA_WORD_SIZE 32
+ #define MARISA_WORD_SIZE 64
 #endif  // defined(_WIN64), etc.
 
 //#define MARISA_WORD_SIZE  (sizeof(void *) * 8)
