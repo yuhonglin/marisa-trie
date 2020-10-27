@@ -18,15 +18,15 @@ class Mapper {
   void open(const char *filename);
   void open(const void *ptr, std::size_t size);
 
-  __attribute__((no_sanitize("alignment")))
   template <typename T>
+  __attribute__((no_sanitize("alignment")))
   void map(T *obj) {
     MARISA_THROW_IF(obj == NULL, MARISA_NULL_ERROR);
     std::memcpy(obj, map_data(sizeof(T)), sizeof(T));
   }
-
-  __attribute__((no_sanitize("alignment")))
+  
   template <typename T>
+  __attribute__((no_sanitize("alignment")))
   void map(const T **objs, std::size_t num_objs) {
     MARISA_THROW_IF((objs == NULL) && (num_objs != 0), MARISA_NULL_ERROR);
     MARISA_THROW_IF(num_objs > (MARISA_SIZE_MAX / sizeof(T)),
