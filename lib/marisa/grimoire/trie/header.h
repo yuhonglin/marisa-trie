@@ -40,6 +40,7 @@ class Header {
     return buf;
   }
 
+  __attribute__((no_sanitize("alignment")))
   static bool test_header(const char *ptr) {
     for (std::size_t i = 0; i < HEADER_SIZE; ++i) {
       if (ptr[i] != get_header()[i]) {
